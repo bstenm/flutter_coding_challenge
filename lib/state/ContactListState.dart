@@ -2,25 +2,13 @@ import 'package:flutter/foundation.dart';
 import '../utils/groupByFirstLetter.dart';
 
 class ContactListState with ChangeNotifier {
-  final _contacts = <String>[
-    'Adi Shamir',
-    'Alan Kay',
-    'Andrew Yao',
-    'Barbara Liskov',
-    'Kristen Nygaard',
-    'Leonard Adleman',
-    'Leslie Lamport',
-    'Ole-Johan Dahl',
-    'Peter Naur',
-    'Robert E. Kahn',
-    'Ronald L. Rivest',
-    'Vinton G. Cerf',
-  ];
   Map _entries = Map<String, List>();
   List _selected = List<String>();
   Map _sortedContacts = Map<String, List>();
+  List<String> _contacts = List<String>();
 
-  ContactListState() {
+  ContactListState(contacts) {
+    _contacts = contacts;
     _contacts.sort();
     _sortedContacts = groupByFirstLetter(_contacts);
     _entries.addAll(_sortedContacts);

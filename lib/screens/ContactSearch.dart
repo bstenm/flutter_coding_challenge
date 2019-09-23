@@ -40,7 +40,10 @@ class _ContactSearchState extends State<ContactSearch> {
                 controller: _searchController,
                 filterContacts: _contactList.filterByTerm,
               )
-            : Text('My Contacts'),
+            : Text(
+                'My Contacts',
+                key: Key('title'),
+              ),
         actions: <Widget>[
           _searchOn
               ? IconButton(
@@ -75,10 +78,12 @@ class _ContactSearchState extends State<ContactSearch> {
                 scrollController: _scrollController,
               ),
             ),
-            ContactList(
-              contactList: _contactList,
-              selectDisabled: _searchOn,
-              scrollController: _scrollController,
+            Expanded(
+              child: ContactList(
+                contactList: _contactList,
+                selectDisabled: _searchOn,
+                scrollController: _scrollController,
+              ),
             ),
             Visibility(
               visible: !_searchOn,

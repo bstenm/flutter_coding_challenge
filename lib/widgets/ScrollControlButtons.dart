@@ -19,7 +19,7 @@ class ScrollControlButtons extends StatelessWidget {
     // build new data structure with
     // physical position as key
     keys.forEach((k) {
-      Map e = new Map();
+      Map e = Map();
       e['groupId'] = k;
       e['position'] = position;
       _groupByPosition.add(e);
@@ -42,7 +42,7 @@ class ScrollControlButtons extends StatelessWidget {
               // we scroll to the position corresponding to the letter pressed
               scrollController.animateTo(
                 entry['position'],
-                duration: new Duration(seconds: 1),
+                duration: Duration(seconds: 1),
                 curve: Curves.ease,
               );
             },
