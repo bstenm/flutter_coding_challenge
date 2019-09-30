@@ -1,3 +1,4 @@
 # flutter contact list
 
-Contact list with search and group messaging capabilities
+Work in progress.
+Contact list with search and group messaging capabilities.
