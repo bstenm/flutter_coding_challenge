@@ -31,7 +31,8 @@ class _ContactSearchState extends State<ContactSearch> {
 
   @override
   Widget build(BuildContext context) {
-    final _contactList = Provider.of<ContactListState>(context);
+    final ContactListState _contactList =
+        Provider.of<ContactListState>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -68,29 +69,27 @@ class _ContactSearchState extends State<ContactSearch> {
                 ),
         ],
       ),
-      body: Container(
-        child: Column(
-          children: <Widget>[
-            Visibility(
-              visible: !_searchOn,
-              child: ScrollControlButtons(
-                entries: _contactList.entries,
-                scrollController: _scrollController,
-              ),
+      body: Column(
+        children: <Widget>[
+          Visibility(
+            visible: !_searchOn,
+            child: ScrollControlButtons(
+              entries: _contactList.entries,
+              scrollController: _scrollController,
             ),
-            Expanded(
-              child: ContactList(
-                contactList: _contactList,
-                selectDisabled: _searchOn,
-                scrollController: _scrollController,
-              ),
+          ),
+          Expanded(
+            child: ContactList(
+              contactList: _contactList,
+              selectDisabled: _searchOn,
+              scrollController: _scrollController,
             ),
-            Visibility(
-              visible: !_searchOn,
-              child: GroupedContacts(),
-            ),
-          ],
-        ),
+          ),
+          Visibility(
+            visible: !_searchOn,
+            child: GroupedContacts(),
+          ),
+        ],
       ),
     );
   }

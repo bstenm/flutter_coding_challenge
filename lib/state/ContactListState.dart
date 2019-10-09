@@ -2,10 +2,10 @@ import 'package:flutter/foundation.dart';
 import '../utils/groupByFirstLetter.dart';
 
 class ContactListState with ChangeNotifier {
-  Map _entries = Map<String, List>();
-  List _selected = List<String>();
-  Map _sortedContacts = Map<String, List>();
+  List<String> _selected = List<String>();
   List<String> _contacts = List<String>();
+  Map<String, List> _entries = Map<String, List>();
+  Map<String, List> _sortedContacts = Map<String, List>();
 
   ContactListState(contacts) {
     _contacts = contacts;
@@ -14,7 +14,7 @@ class ContactListState with ChangeNotifier {
     _entries.addAll(_sortedContacts);
   }
 
-  Map get entries => _entries;
+  Map<String, List> get entries => _entries;
 
   List<String> get selected => _selected;
 
